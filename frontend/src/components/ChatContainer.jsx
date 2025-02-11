@@ -7,13 +7,30 @@ import MessageSkeleton from "./skeletons/MessageSkeleton.jsx";
 import { formatMessageTime } from "../lib/utils.js";
 
 const ChatContainer = () => {
-  const { messages, getMessages, isMessagesLoading, selectedUser } =
-    useChatStore();
-    const { authUser } = useAuthStore();
+  const {
+    messages,
+    getMessages,
+    isMessagesLoading,
+    selectedUser,
+    subscribeToMessages,
+    unsubscribeFromMessages,
+  } = useChatStore();
+  const { authUser } = useAuthStore();
 
   useEffect(() => {
     getMessages(selectedUser._id);
-  }, [selectedUser._id, getMessages]);
+
+    subscribeToMessages();
+
+    return () => {
+      unsubscribeFromMessages();
+    };
+  }, [
+    selectedUser._id,
+    getMessages,
+    subscribeToMessages,
+    unsubscribeFromMessages,
+  ]);
 
   if (isMessagesLoading) {
     return (
@@ -49,10 +66,18 @@ const ChatContainer = () => {
               </div>
             </div>
             <div className="chat-header mb-1">
-              <time className="text-xs opacity-50 ml-1">{formatMessageTime(message.createdAt)}</time>
+              <time className="text-xs opacity-50 ml-1">
+                {formatMessageTime(message.createdAt)}
+              </time>
             </div>
             <div className="chat-bubble flex flex-col">
-              {message.image && (<img src={message.image} alt="attachment" className="sm:max-w-[200px] rounded-md mb-2"/>)}
+              {message.image && (
+                <img
+                  src={message.image}
+                  alt="attachment"
+                  className="sm:max-w-[200px] rounded-md mb-2"
+                />
+              )}
               {message.text && <p>{message.text}</p>}
             </div>
           </div>
