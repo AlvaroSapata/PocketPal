@@ -20,6 +20,7 @@ export const useChatStore = create((set) => ({
       set({ isUsersLoading: false });
     }
   },
+
   getMessages: async (userId) => {
     set({ isMessagesLoading: true });
     try {
@@ -31,6 +32,25 @@ export const useChatStore = create((set) => ({
       set({ isMessagesLoading: false });
     }
   },
+  sendMessage: (messageData) => {
+    set(async (state) => {
+      const { selectedUser, messages } = state; // Ahora usamos el parámetro 'state'
+
+      // Realizamos la llamada asincrónica fuera de 'set'
+      try {
+        const res = await axiosInstance.post(
+          `/messages/send/${selectedUser._id}`,
+          messageData
+        );
+        // Actualizamos el estado con los nuevos mensajes
+        return { messages: [...messages, res.data] };
+      } catch (error) {
+        toast.error(error.response?.data?.message || "Error sending message");
+        return state; // En caso de error, no actualizamos el estado
+      }
+    });
+  },
+
   //todo optimize
   setSelectedUser: (selectedUser) => set({ selectedUser }),
 }));
