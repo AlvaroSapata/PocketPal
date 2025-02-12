@@ -1,6 +1,6 @@
 # PocketPal
 
-![online](./frontend/public/0.png)
+![Logo](./frontend/public/0.png)
 
 A fully responsive and customizable real-time chat application to have your Pals right in your pocket.
 
@@ -76,7 +76,7 @@ CLOUDINARY_API_SECRET=...
 5. **Start the application in development mode:**
 
    ```bash
-   npm start
+   npm run dev
    This will open the application in your browser at http://localhost:5173.
    ```
 
@@ -153,13 +153,13 @@ To start using the app, you need to either **log in** or **sign up**. Authentica
 - Go to the **Signup Page**.
 - Provide your credentials (username, email, and password).
 - Once registered, you'll automatically be logged in.
-  ![Signup](public/2.png)
+  ![Signup](./frontend/public/2.png)
 
 #### Login
 
 - Go to the **Login Page**.
 - Enter your username and password to access your account.
-  ![Login](public/1.png)
+  ![Login](./frontend/public/1.png)
 
 ### 2. Sending Messages
 
@@ -167,8 +167,8 @@ Once logged in, you can start chatting with your pals:
 
 - Select a contact or group from the **Sidebar**.
 - Use the **Messages Input** area to type and send messages.
-  ![online](public/8.png)
-  ![online](public/10.png)
+  ![sidebar](./frontend/public/8.png)
+  ![chat](./frontend/public/10.png)
 
 ### 3. Profile Settings
 
@@ -176,7 +176,7 @@ You can update your profile as follows:
 
 - Go to the **Profile Page** to change your **profile picture**.
 - Select a new photo from your device to upload.
-  ![online](public/6.png)
+  ![profile](./frontend/public/6.png)
 
 ### 4. Customize the Aesthetic
 
@@ -186,8 +186,8 @@ The app allows you to choose from **32 different themes** for a personalized exp
 - Pick your preferred theme from the 32 available options.
 - Check how your chat will look with the preview.
 
-![32](public/3.png)
-![preview](public/4.png)
+![32](./frontend/public/3.png)
+![preview](./frontend/public/4.png)
 
 ### 5. Filtering Users
 
@@ -195,13 +195,13 @@ Want to see who's online?
 
 - Enable the **online user filter** in the **Settings Page** to only display contacts that are currently online.
 
-![online](public/9.png)
+![online](./frontend/public/9.png)
 
 ### 6. Navigation
 
 - Use the **Navbar** to navigate between pages like **Home**, **Profile**, and **Settings**.
 - If you don’t have any chats selected, the **NoChatSelected** component will be shown as a placeholder.
-  ![online](public/8.png)
+  ![nochat](./frontend/public/8.png)
 
 ### 7. Real-Time Chat
 
