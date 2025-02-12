@@ -1,6 +1,6 @@
 # PocketPal
 
-![online](public/0.png)
+![online](./frontend/public/0.png)
 
 A fully responsive and customizable real-time chat application to have your Pals right in your pocket.
 
